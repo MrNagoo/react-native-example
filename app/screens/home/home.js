@@ -1,0 +1,35 @@
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  AsyncStorage,
+  Modal,
+  ScrollView,
+  Button
+} from "react-native";
+
+export default class Home extends Component {
+  static navigationOptions = {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "black"
+    },
+    headerTintColor: "white"
+  };
+  render() {
+    return (
+      <View>
+        <Text>Hey</Text>
+        <Button
+          title="See Me"
+          onPress={() => this.props.navigation.navigate("Me")}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({});

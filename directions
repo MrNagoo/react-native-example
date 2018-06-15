@@ -1,0 +1,13 @@
+npm install -g create-react-native-app
+
+create-react-native-app WorstAppEver
+
+cd WorstAppEver
+
+yarn start ios (follow sudo commands if needed)
+
+yarn add react-navigation
+yarn add react-native-vector-icons
+
+mkdir app
+mkdir navigation / screens / components / styles 
