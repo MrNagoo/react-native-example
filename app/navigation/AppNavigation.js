@@ -25,40 +25,36 @@ const MoreStack = createStackNavigator(Routes.MoreRoutes, {
   initialRouteName: "More"
 });
 
-const bottomTabNavConfig = {
-  tabBarOptions: {
-    activeTintColor: "gray",
-    style: {
-      backgroundColor: "#000"
-    }
-  }
-};
-
 const MainScreenNavigator = createBottomTabNavigator(
   {
-    Goal: {
-      screen: HomeStack,
-      navigationOptions: {
-        tabBarLabel: "Home",
-        tabBarIcon: <Ionicons name="ios-home" size={25} color="tomato" />
+    Home: HomeStack,
+    Projects: ProjectStack,
+    More: MoreStack
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === "Home") {
+          iconName = `ios-home${focused ? "" : "-outline"}`;
+        } else if (routeName === "Projects") {
+          iconName = `ios-planet${focused ? "" : "-outline"}`;
+        } else if (routeName === "More") {
+          iconName = `ios-more${focused ? "" : "-outline"}`;
+        }
+
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
-    },
-    Profit: {
-      screen: ProjectStack,
-      navigationOptions: {
-        tabBarLabel: "Projects",
-        tabBarIcon: <Ionicons name="ios-planet" size={25} color="tomato" />
-      }
-    },
-    Contacts: {
-      screen: MoreStack,
-      navigationOptions: {
-        tabBarLabel: "Home",
-        tabBarIcon: <Ionicons name="ios-more" size={25} color="tomato" />
+    }),
+    tabBarOptions: {
+      activeTintColor: "tomato",
+      inactiveTintColor: "gray",
+      style: {
+        backgroundColor: "black"
       }
     }
-  },
-  bottomTabNavConfig
+  }
 );
 
 export default class AppNavigation extends Component {

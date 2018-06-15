@@ -11,6 +11,9 @@ import {
 } from "react-native";
 
 export default class Projects extends Component {
+  static navigationOptions = {
+    title: "Projects"
+  };
   render() {
     return (
       <View>
